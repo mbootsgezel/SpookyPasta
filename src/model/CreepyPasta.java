@@ -2,9 +2,10 @@ package model;
 
 public class CreepyPasta {
 	
-	private String name;
-	private int stage;
-	private String message;
+	protected String name;
+	protected int stage;
+	protected String message;
+	protected String input;
 	
 	public CreepyPasta() {
 		this.name = "Unknown";
@@ -24,6 +25,10 @@ public class CreepyPasta {
 		this.stage = i;
 	}
 	
+	public void setInput(String input){
+		this.input = input;
+	}
+	
 	public String getName(){
 		return name;
 	}
@@ -34,6 +39,10 @@ public class CreepyPasta {
 	
 	public int getDialogStage(){
 		return stage;
+	}
+	
+	public String getInput(){
+		return input;
 	}
 
 }
