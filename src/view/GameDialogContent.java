@@ -43,7 +43,7 @@ public class GameDialogContent extends JPanel{
 			dialogs.get(i).setForeground(new Color(255, 255, 255, 255-((dialogs.size()-i-1)*50)));
 		}
 
-		final Timer dialogUpdater = new Timer(75, new ActionListener() {
+		final Timer dialogUpdater = new Timer(50, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dialog.nextDialogChar();
@@ -56,7 +56,7 @@ public class GameDialogContent extends JPanel{
 			public void run() {
 				dialogUpdater.stop();
 			}
-		}, (s.length()+1)*80);
+		}, (s.length()+1)*55);
 	}
 
 
