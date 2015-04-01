@@ -1,5 +1,7 @@
 package controller;
 
+import view.GameDialogContent;
+
 public class DialogHandler {
 	
 	private static DialogHandler instance;
