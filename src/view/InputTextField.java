@@ -8,9 +8,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
+import controller.InputController;
+
 public class InputTextField extends JTextField{
 	
-	public InputTextField() {
+	private static InputTextField instance;
+	
+	private InputTextField() {
 		super();
 		this.setSize(780, 30);
 		this.setBackground(Color.BLACK);
@@ -24,6 +28,23 @@ public class InputTextField extends JTextField{
 		this.requestFocus();
 		this.setCaretColor(Color.WHITE);
 		this.setCaret(new CustomCaret());
+		
+		this.addActionListener(new InputController());
+	}
+	
+	public void sendInput(){
+		String input = this.getText().toLowerCase();
+		this.setText("");
+		//GameDialogPane.getInstance().appendDialog(input);
+		//GameDialogLabel.getInstance().appendDialog(input);
+		GameDialogContent.getInstance().newDialog(input);
+	}
+	
+	public static InputTextField getInstance(){
+		if(instance == null){
+			instance = new InputTextField();
+		}
+		return instance;
 	}
 
 }

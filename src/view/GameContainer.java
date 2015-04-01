@@ -8,19 +8,19 @@ import javax.swing.JPanel;
 public class GameContainer extends JPanel{
 	
 	private InputTextField input;
-	private GameDialogPane dialog;
+	private GameDialogContent content;
 	
 	public GameContainer() {
 		this.setLayout(null);
 		this.setBackground(Color.BLACK);
 		
-		this.dialog = new GameDialogPane();
-		this.dialog.setLocation(10, 31);
-		this.add(dialog);
+		this.content = GameDialogContent.getInstance();
+		this.content.setLocation(10, 31);
+		this.add(content);
 		
-		this.input = new InputTextField();
+		this.input = InputTextField.getInstance();
 		this.input.setLocation(10, 339);
 		this.add(input);
 	}
-
+	
 }
