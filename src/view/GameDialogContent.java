@@ -1,14 +1,11 @@
 package view;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.TimerTask;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
 public class GameDialogContent extends JPanel{
 
@@ -39,30 +36,27 @@ public class GameDialogContent extends JPanel{
 				this.remove(dialogs.get(i));
 				this.dialogs.remove(i);
 			}
-			//dialogs.get(i).setLocation(10, 300 - (50*(dialogs.size()-i)));
 			dialogs.get(i).setForeground(new Color(255, 255, 255, 255-((dialogs.size()-i-1)*50)));
 		}
-
-		Timer dialogUpdater = new Timer(75, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dialog.nextDialogChar();
-			}
-		});
-		dialogUpdater.start();
-
+		
+		Thread t = new Thread(dialog);
+		t.start();
+		
 		new java.util.Timer().schedule(new TimerTask() {
 			@Override
 			public void run() {
-				dialogUpdater.stop();
+				//t.stop();
 			}
 		}, (s.length()+1)*80);
-	}
 
+
+	}
 
 	private void initDialogs(){
 		for(int i = 0; i < 5;i++){
-			this.newDialog("");
+			GameDialog dialog =  new GameDialog("");
+			this.dialogs.add(dialog);
+			this.add(dialog);
 		}
 	}
 
