@@ -5,12 +5,14 @@ import java.awt.Font;
 import java.awt.Insets;
 
 import javax.swing.BorderFactory;
-import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
+import controller.DialogHandler;
 import controller.InputController;
 
 public class InputTextField extends JTextField{
+	
+	private static final long serialVersionUID = -3291468811616663711L;
 	
 	private static InputTextField instance;
 	
@@ -35,9 +37,7 @@ public class InputTextField extends JTextField{
 	public void sendInput(){
 		String input = this.getText().toLowerCase();
 		this.setText("");
-		//GameDialogPane.getInstance().appendDialog(input);
-		//GameDialogLabel.getInstance().appendDialog(input);
-		GameDialogContent.getInstance().newDialog(input);
+		DialogHandler.getInstance().getDialogText(input);
 	}
 	
 	public static InputTextField getInstance(){

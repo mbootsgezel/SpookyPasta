@@ -10,20 +10,18 @@ public class GameDialog extends JTextPane{
 	
 	private static final long serialVersionUID = 4176255359861576708L;
 	
-	private GameDialogContent gdc;
-	
 	private String fullText = "";
 	private String text = "";
 	private int position = 0;
 
-	public GameDialog(GameDialogContent gdc, String s) {
+	public GameDialog(String s) {
 		this.setSize(780, 50);
 		this.setBackground(Color.BLACK);
 		this.setForeground(Color.WHITE);
 		this.setFocusable(false);
+		this.setEditable(false);
 		this.setFont(new Font("Courier", Font.PLAIN, 16));
 		
-		this.gdc = gdc;
 		this.fullText = s;
 	}
 

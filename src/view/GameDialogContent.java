@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.TimerTask;
 
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -30,8 +29,7 @@ public class GameDialogContent extends JPanel{
 
 	public void newDialog(String s){
 
-		GameDialog dialog =  new GameDialog(this, s);
-
+		GameDialog dialog =  new GameDialog(s);
 
 		this.dialogs.add(dialog);
 		this.add(dialog);
@@ -41,7 +39,7 @@ public class GameDialogContent extends JPanel{
 				this.remove(dialogs.get(i));
 				this.dialogs.remove(i);
 			}
-			dialogs.get(i).setLocation(10, 300 - (50*(dialogs.size()-i)));
+			//dialogs.get(i).setLocation(10, 300 - (50*(dialogs.size()-i)));
 			dialogs.get(i).setForeground(new Color(255, 255, 255, 255-((dialogs.size()-i-1)*50)));
 		}
 
@@ -58,7 +56,7 @@ public class GameDialogContent extends JPanel{
 			public void run() {
 				dialogUpdater.stop();
 			}
-		}, (s.length()+1)*75);
+		}, (s.length()+1)*80);
 	}
 
 
